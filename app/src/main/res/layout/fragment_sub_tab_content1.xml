@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:text="测试嵌套ViewPager Fragment 1">
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/read_file_from_external_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="从外部存储读取文件"
+            android:layout_margin="10dp">
+
+        </Button>
+
+        <Button
+            android:id="@+id/write_file_to_external_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="写文件到外部存储"
+            android:layout_margin="10dp">
+
+        </Button>
+
+        <Button
+            android:id="@+id/take_pic_video_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="拍照录制视频保存外部共享存储区域"
+            android:layout_margin="10dp">
+
+        </Button>
+
+        <Button
+            android:id="@+id/testMemBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取进程运行时内存"
+            android:layout_margin="10dp">
+
+        </Button>
+
+        <TextView
+            android:id="@+id/memTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            >
+
+        </TextView>
+    </LinearLayout>
+
+</FrameLayout>

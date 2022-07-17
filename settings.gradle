@@ -1,0 +1,4 @@
+rootProject.name = "MikelProjectDemo"
+include ':app'
+include ':baselib'
+include ':nativelib'

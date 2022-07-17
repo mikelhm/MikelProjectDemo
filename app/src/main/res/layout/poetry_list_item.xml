@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--实体类和ui绑定-->
+    <data>
+        <!--databinding 使用poetry可以直接访问实体类Poetry里的字段-->
+        <variable name="poetry" type="com.mikel.projectdemo.jetpack.service.model.Poetry"/>
+        <!--databinding 使用callback可以直接访问实体类PoetryClickCallBack里的方法-->
+        <variable name="callback" type="com.mikel.projectdemo.jetpack.view.callback.PoetryClickCallBack"/>
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="@{() ->  callback.onClick(poetry)}"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:text="@{poetry.title}"/>
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@{poetry.content}"/>
+
+            <TextView
+                android:id="@+id/author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="@{poetry.authors}"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -1,0 +1,77 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //添加okhttp依赖
+    api 'com.squareup.okhttp3:okhttp:4.4.0'
+
+    //添加retrofit依赖
+    api 'com.squareup.retrofit2:retrofit:2.5.0'
+    api 'com.squareup.retrofit2:converter-gson:2.5.0'
+    api 'com.squareup.retrofit2:converter-scalars:2.5.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'//支持RxJavaCallAdapterFactory
+
+    //添加rxjava2依赖
+    api 'io.reactivex.rxjava2:rxjava:2.2.9'
+    api 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+    //paging2
+//    implementation "androidx.paging:paging-runtime:2.1.0"
+
+    //paging3
+    api "androidx.paging:paging-runtime:3.0.1"
+    api "androidx.paging:paging-rxjava2:3.0.1"
+
+    //添加room依赖
+    // add for room
+    api "android.arch.persistence.room:runtime:1.1.1"
+    // room 配合 RxJava
+    api "android.arch.persistence.room:rxjava2:1.1.1"
+    annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
+
+    //ui recyclerView依赖添加
+    api 'androidx.recyclerview:recyclerview:1.2.0'
+
+    //exoplayer
+    api 'com.google.android.exoplayer:exoplayer:2.11.3'
+    //video cache
+    api 'com.danikula:videocache:2.7.1'
+    //glide
+    api 'com.github.bumptech.glide:glide:4.11.0'
+
+    api project((':nativelib'))
+}
