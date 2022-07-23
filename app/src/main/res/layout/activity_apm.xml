@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/device_total_mem"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="设备总内存:">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/device_free_mem"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="设备可用内存:">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/process_cpu_rate"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="进程CPU rate :">
+    </TextView>
+
+    <TextView
+        android:id="@+id/read_file_process_mem"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="读文件获取应用运行时内存:">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/runtime_process_mem"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Runtime获取应用运行时内存:">
+
+    </TextView>
+
+
+    <TextView
+        android:id="@+id/am_process_mem"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ActivityManager获取应用运行时内存:">
+
+    </TextView>
+
+    <Button
+        android:id="@+id/btn_increase_mem"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="模拟增加内存">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btn_io_main"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="主线程IO测试">
+
+    </Button>
+</LinearLayout>

@@ -31,6 +31,20 @@
         </activity>
         <activity android:name=".jetpack.view.ui.PoetryDetailActivity">
         </activity>
+
+        <activity android:name=".apm.ApmTestActivity">
+
+        </activity>
+
+        <activity android:name=".web.WebViewTestActivity"
+                  android:process=":web">
+
+        </activity>
+
+        <activity android:name=".video.VideoTestActivity"
+                  android:process=":video">
+
+        </activity>
     </application>
 
 </manifest>

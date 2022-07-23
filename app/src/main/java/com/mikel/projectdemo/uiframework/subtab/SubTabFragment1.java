@@ -5,19 +5,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-
 import com.mikel.projectdemo.R;
+import com.mikel.projectdemo.apm.ApmTestActivity;
 import com.mikel.projectdemo.presenter.FileHandlePresenter;
-import com.mikel.projectdemo.utils.MemoryUtil;
-
 import org.jetbrains.annotations.NotNull;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,29 +20,9 @@ import androidx.fragment.app.Fragment;
 
 public class SubTabFragment1 extends Fragment {
     FileHandlePresenter fileHandlePresenter;
-    TextView memTxt;
     public static SubTabFragment1 build() {
         return new SubTabFragment1();
     }
-
-    private final int MSG_UPDATE_MEM = 1000;
-    Handler mainHandler = new Handler(Looper.myLooper()) {
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            switch (msg.what) {
-                case MSG_UPDATE_MEM :
-                    long memSize = MemoryUtil.getProcessRealMemory();
-                    memTxt.setText("当前进程运行时内存:" + MemoryUtil.getPrintSize(memSize));
-                    Message message = Message.obtain();
-                    message.what = MSG_UPDATE_MEM;
-                    mainHandler.sendMessageDelayed(message,1000);
-                    break;
-                default:
-                    break;
-            }
-
-        }
-    };
 
     @Override
     public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
@@ -123,15 +97,12 @@ public class SubTabFragment1 extends Fragment {
 
 
 
-        Button testMemBtn = rootView.findViewById(R.id.testMemBtn);
+        Button testMemBtn = rootView.findViewById(R.id.apm_entry_btn);
         testMemBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Message message = Message.obtain();
-                message.what = MSG_UPDATE_MEM;
-                mainHandler.sendMessage(message);
+                ApmTestActivity.startActivity(getActivity());
             }
         });
-        memTxt = rootView.findViewById(R.id.memTxt);
     }
 }
