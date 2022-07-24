@@ -2,3 +2,5 @@ rootProject.name = "MikelProjectDemo"
 include ':app'
 include ':baselib'
 include ':nativelib'
+include ':apm'
+include ':apmlib'

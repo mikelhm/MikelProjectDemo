@@ -68,6 +68,24 @@
     </Button>
 
     <Button
+        android:id="@+id/btn_evil_method"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="模拟慢方法">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btn_anr_test"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="模拟ANR">
+
+    </Button>
+
+    <Button
         android:id="@+id/btn_io_main"
         android:layout_margin="10dp"
         android:layout_width="match_parent"

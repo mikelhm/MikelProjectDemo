@@ -18,6 +18,8 @@ import com.mikel.baselib.manager.ThreadManager;
 import com.mikel.projectdemo.R;
 import com.mikel.projectdemo.utils.MemoryUtil;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -104,9 +106,56 @@ public class ApmTestActivity extends Activity {
         runtimeMemTxt = findViewById(R.id.runtime_process_mem);
         amMemTxt = findViewById(R.id.am_process_mem);
 
+        findViewById(R.id.btn_evil_method).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Thread.sleep(1000);
+                } catch (Exception e) {
+
+                }
+
+            }
+        });
+
+        findViewById(R.id.btn_anr_test).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Thread.sleep(5000);
+                } catch (Exception e) {
+
+                }
+            }
+        });
+
         findViewById(R.id.btn_io_main).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FileOutputStream fileOutputStream = null;
+                try {
+                    File file = new File(ApmTestActivity.this.getFilesDir().getAbsolutePath() +
+                            File.separator + "testIO.txt");
+                    if(!file.exists()) {
+                        file.createNewFile();
+                    }
+
+                    String text = "hello world.";
+                    fileOutputStream = new FileOutputStream(file, true);
+                    for(int i = 0; i<1000; i++) {
+                        fileOutputStream.write(text.getBytes());
+                    }
+
+                } catch (Exception e) {
+
+                } finally {
+                    try {
+                        fileOutputStream.close();
+                    } catch (Exception e) {
+
+                    }
+
+                }
 
             }
         });

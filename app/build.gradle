@@ -2,8 +2,18 @@ plugins {
     id 'com.android.application'
 }
 
+//todo matrix
+apply plugin: 'com.tencent.matrix-plugin'
+matrix {
+    trace {
+        enable = true	//if you don't want to use trace canary, set false
+        baseMethodMapFile = "${project.buildDir}/matrix_output/Debug.methodmap"
+        blackListFile = "${project.projectDir}/matrixTrace/blackMethodList.txt"
+    }
+}
+
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
 
     defaultConfig {
         applicationId "com.mikel.projectdemo"
@@ -44,4 +54,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
     api project(':baselib')
+    api project(':apmlib')
 }
