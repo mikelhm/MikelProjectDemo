@@ -1,19 +1,19 @@
 {
   "buildFiles": [
-    "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/CMakeLists.txt"
+    "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/CMakeLists.txt"
   ],
   "cleanCommandsComponents": [
     [
       "/Users/luohaiming/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
       "-C",
-      "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/.cxx/cmake/debug/arm64-v8a",
+      "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/.cxx/cmake/debug/arm64-v8a",
       "clean"
     ]
   ],
   "buildTargetsCommandComponents": [
     "/Users/luohaiming/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
     "-C",
-    "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/.cxx/cmake/debug/arm64-v8a",
+    "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/.cxx/cmake/debug/arm64-v8a",
     "{LIST_OF_TARGETS_TO_BUILD}"
   ],
   "libraries": {
@@ -22,13 +22,13 @@
       "buildCommandComponents": [
         "/Users/luohaiming/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
         "-C",
-        "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/.cxx/cmake/debug/arm64-v8a",
+        "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/.cxx/cmake/debug/arm64-v8a",
         "native_test"
       ],
       "abi": "arm64-v8a",
-      "output": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/jniLibs/arm64-v8a/libnative_test.so",
+      "output": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/jniLibs/arm64-v8a/libnative_test.so",
       "runtimeFiles": [
-        "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/src/main/jniLibs/arm64-v8a/libaesutil.so"
+        "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/src/main/jniLibs/arm64-v8a/libaesutil.so"
       ]
     }
   }

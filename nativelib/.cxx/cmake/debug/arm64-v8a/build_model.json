@@ -6,12 +6,12 @@
     "deprecated": false,
     "default": true
   },
-  "originalCxxBuildFolder": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/.cxx/cmake/debug/arm64-v8a",
-  "cxxBuildFolder": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/.cxx/cmake/debug/arm64-v8a",
+  "originalCxxBuildFolder": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/.cxx/cmake/debug/arm64-v8a",
+  "cxxBuildFolder": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/.cxx/cmake/debug/arm64-v8a",
   "abiPlatformVersion": 21,
   "cmake": {
-    "cmakeWrappingBaseFolder": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/.cxx/cxx/debug/arm64-v8a",
-    "cmakeArtifactsBaseFolder": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/.cxx/cmake/debug/arm64-v8a",
+    "cmakeWrappingBaseFolder": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/.cxx/cxx/debug/arm64-v8a",
+    "cmakeArtifactsBaseFolder": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/.cxx/cmake/debug/arm64-v8a",
     "effectiveConfiguration": {
       "name": "traditional-android-studio-cmake-environment",
       "description": "Composite reified CMakeSettings configuration",
@@ -19,13 +19,13 @@
       "inheritEnvironments": [
         "ndk"
       ],
-      "buildRoot": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/.cxx/cmake/debug/arm64-v8a",
+      "buildRoot": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/.cxx/cmake/debug/arm64-v8a",
       "cmakeToolchain": "/Users/luohaiming/Library/Android/sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake",
       "cmakeExecutable": "/Users/luohaiming/Library/Android/sdk/cmake/3.10.2.4988404/bin/cmake",
       "variables": [
         {
           "name": "CMAKE_FIND_ROOT_PATH",
-          "value": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/.cxx/cmake/debug/prefab/arm64-v8a/prefab"
+          "value": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/.cxx/cmake/debug/prefab/arm64-v8a/prefab"
         },
         {
           "name": "CMAKE_BUILD_TYPE",
@@ -61,11 +61,11 @@
         },
         {
           "name": "CMAKE_LIBRARY_OUTPUT_DIRECTORY",
-          "value": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/build/intermediates/cmake/debug/obj/arm64-v8a"
+          "value": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/build/intermediates/cmake/debug/obj/arm64-v8a"
         },
         {
           "name": "CMAKE_RUNTIME_OUTPUT_DIRECTORY",
-          "value": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/build/intermediates/cmake/debug/obj/arm64-v8a"
+          "value": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/build/intermediates/cmake/debug/obj/arm64-v8a"
         },
         {
           "name": "CMAKE_MAKE_PROGRAM",
@@ -85,7 +85,7 @@
         }
       ]
     },
-    "cmakeServerLogFile": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/.cxx/cmake/debug/arm64-v8a/cmake_server_log.txt"
+    "cmakeServerLogFile": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/.cxx/cmake/debug/arm64-v8a/cmake_server_log.txt"
   },
   "variant": {
     "buildSystemArgumentList": [
@@ -96,8 +96,8 @@
       ""
     ],
     "variantName": "debug",
-    "objFolder": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/build/intermediates/cmake/debug/obj",
-    "soFolder": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/build/intermediates/cmake/debug/lib",
+    "objFolder": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/build/intermediates/cmake/debug/obj",
+    "soFolder": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/build/intermediates/cmake/debug/lib",
     "isDebuggableEnabled": true,
     "validAbiList": [
       "ARMEABI_V7A",
@@ -107,13 +107,13 @@
     "implicitBuildTargetSet": [],
     "cmakeSettingsConfiguration": "android-gradle-plugin-predetermined-name",
     "module": {
-      "cxxFolder": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/.cxx",
+      "cxxFolder": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/.cxx",
       "splitsAbiFilterSet": [],
-      "intermediatesFolder": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/build/intermediates",
+      "intermediatesFolder": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/build/intermediates",
       "gradleModulePathName": ":nativelib",
-      "moduleRootFolder": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib",
-      "moduleBuildFile": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/build.gradle",
-      "makeFile": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/CMakeLists.txt",
+      "moduleRootFolder": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib",
+      "moduleBuildFile": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/build.gradle",
+      "makeFile": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/CMakeLists.txt",
       "buildSystem": "CMAKE",
       "ndkFolder": "/Users/luohaiming/Library/Android/sdk/ndk/21.4.7075529",
       "ndkVersion": "21.4.7075529",
@@ -199,9 +199,9 @@
         "SYSTEM": {}
       },
       "project": {
-        "rootBuildGradleFolder": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo",
-        "cxxFolder": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/.cxx",
-        "compilerSettingsCacheFolder": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/.cxx",
+        "rootBuildGradleFolder": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github",
+        "cxxFolder": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/.cxx",
+        "compilerSettingsCacheFolder": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/.cxx",
         "sdkFolder": "/Users/luohaiming/Library/Android/sdk",
         "isNativeCompilerSettingsCacheEnabled": false,
         "isBuildOnlyTargetAbiEnabled": true,
@@ -211,10 +211,10 @@
       },
       "nativeBuildOutputLevel": "QUIET"
     },
-    "prefabDirectory": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/.cxx/cmake/debug/prefab"
+    "prefabDirectory": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/.cxx/cmake/debug/prefab"
   },
   "buildSettings": {
     "environmentVariables": []
   },
-  "prefabFolder": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/.cxx/cmake/debug/prefab/arm64-v8a"
+  "prefabFolder": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/.cxx/cmake/debug/prefab/arm64-v8a"
 }

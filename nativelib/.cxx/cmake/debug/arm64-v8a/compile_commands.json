@@ -1,7 +1,7 @@
 [
 {
-  "directory": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/.cxx/cmake/debug/arm64-v8a",
-  "command": "/Users/luohaiming/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/luohaiming/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/luohaiming/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dnative_test_EXPORTS -I../../../../src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/native_test.dir/src/main/cpp/native_test.cpp.o -c /Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/src/main/cpp/native_test.cpp",
-  "file": "/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/src/main/cpp/native_test.cpp"
+  "directory": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/.cxx/cmake/debug/arm64-v8a",
+  "command": "/Users/luohaiming/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=aarch64-none-linux-android21 --gcc-toolchain=/Users/luohaiming/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64 --sysroot=/Users/luohaiming/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot  -Dnative_test_EXPORTS -I../../../../src/main/cpp/include  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -o CMakeFiles/native_test.dir/src/main/cpp/native_test.cpp.o -c /Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/src/main/cpp/native_test.cpp",
+  "file": "/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/src/main/cpp/native_test.cpp"
 }
 ]

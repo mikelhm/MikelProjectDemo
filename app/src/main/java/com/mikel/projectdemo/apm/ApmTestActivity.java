@@ -2,16 +2,20 @@ package com.mikel.projectdemo.apm;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Debug;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.os.MessageQueue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import com.mikel.baselib.manager.ThreadManager;
@@ -86,6 +90,20 @@ public class ApmTestActivity extends Activity {
         getProcessRunningMem();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("ANR_TEST_BR");
+        registerReceiver(anrTestReceiver, intentFilter);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        unregisterReceiver(anrTestReceiver);
+    }
+
     private void initUI() {
         deviceTotalMemTxt = findViewById(R.id.device_total_mem);
         deviceTotalMemTxt.setText("设备总内存: " + MemoryUtil.getPrintSize(getDeviceTotalMem()));
@@ -118,7 +136,32 @@ public class ApmTestActivity extends Activity {
             }
         });
 
-        findViewById(R.id.btn_anr_test).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_evil_touch_event).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ApmTestActivity.this, ApmTouchEventTestActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.btn_evil_idle_handler).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() {
+                    @Override
+                    public boolean queueIdle() {
+                        try {
+                            Thread.sleep(5000);
+                        } catch (Exception e) {
+
+                        }
+                        return false;
+                    }
+                });
+            }
+        });
+
+        findViewById(R.id.btn_anr_test_click).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -126,6 +169,33 @@ public class ApmTestActivity extends Activity {
                 } catch (Exception e) {
 
                 }
+            }
+        });
+
+        findViewById(R.id.btn_anr_test_click).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Thread.sleep(5000);
+                } catch (Exception e) {
+
+                }
+            }
+        });
+
+        findViewById(R.id.btn_anr_test_br).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent("ANR_TEST_BR");
+                sendBroadcast(intent);
+            }
+        });
+
+        findViewById(R.id.btn_anr_test_service).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ApmTestActivity.this, ApmAnrTestService.class);
+                startService(intent);
             }
         });
 
@@ -222,5 +292,19 @@ public class ApmTestActivity extends Activity {
 
             }
         });
+    }
+
+
+    private ANRTestReceiver anrTestReceiver = new ANRTestReceiver();
+    public class ANRTestReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            try {
+                Thread.sleep(12000);
+            } catch (Exception e) {
+
+            }
+        }
     }
 }

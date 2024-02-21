@@ -1,1 +1,1 @@
-/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/CMakeLists.txt
+/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/CMakeLists.txt

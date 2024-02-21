@@ -17,6 +17,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MikelProjectDemo">
+
+        <service android:name=".apm.ApmAnrTestService">
+
+        </service>
         <!--activity-->
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -36,13 +40,16 @@
 
         </activity>
 
+        <activity android:name=".apm.ApmTouchEventTestActivity">
+
+        </activity>
+
         <activity android:name=".web.WebViewTestActivity"
                   android:process=":web">
 
         </activity>
 
-        <activity android:name=".video.VideoTestActivity"
-                  android:process=":video">
+        <activity android:name=".video.VideoTestActivity">
 
         </activity>
     </application>

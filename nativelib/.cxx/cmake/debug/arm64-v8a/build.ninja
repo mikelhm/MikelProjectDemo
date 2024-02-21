@@ -34,7 +34,7 @@ include rules.ninja
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/.cxx/cmake/debug/arm64-v8a && /Users/luohaiming/Library/Android/sdk/cmake/3.10.2.4988404/bin/cmake -H/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib -B/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/.cxx/cmake/debug/arm64-v8a
+  COMMAND = cd /Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/.cxx/cmake/debug/arm64-v8a && /Users/luohaiming/Library/Android/sdk/cmake/3.10.2.4988404/bin/cmake -H/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib -B/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/.cxx/cmake/debug/arm64-v8a
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -44,7 +44,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/.cxx/cmake/debug/arm64-v8a && /Users/luohaiming/Library/Android/sdk/cmake/3.10.2.4988404/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/.cxx/cmake/debug/arm64-v8a && /Users/luohaiming/Library/Android/sdk/cmake/3.10.2.4988404/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 build edit_cache: phony CMakeFiles/edit_cache.util

@@ -98,4 +98,10 @@ public class MediaFragment extends Fragment {
         VideoPlayManager.getInstance(AppUtil.getApplicationContext()).pausePlay();
         Log.d("Video_Play_TAG", " video fragment Pause ");
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        VideoPlayManager.getInstance(getActivity()).stopPlay();
+    }
 }

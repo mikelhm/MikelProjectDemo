@@ -12,6 +12,8 @@ import android.widget.Button;
 import com.mikel.projectdemo.R;
 import com.mikel.projectdemo.apm.ApmTestActivity;
 import com.mikel.projectdemo.presenter.FileHandlePresenter;
+import com.mikel.projectdemo.video.VideoTestActivity;
+
 import org.jetbrains.annotations.NotNull;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -102,6 +104,14 @@ public class SubTabFragment1 extends Fragment {
             @Override
             public void onClick(View v) {
                 ApmTestActivity.startActivity(getActivity());
+            }
+        });
+
+        Button exoTestBtn = rootView.findViewById(R.id.exo_entry_btn);
+        exoTestBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                VideoTestActivity.startActivity(getActivity());
             }
         });
     }

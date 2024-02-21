@@ -42,7 +42,7 @@ rule CXX_SHARED_LIBRARY_LINKER__native_test
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /Users/luohaiming/Library/Android/sdk/cmake/3.10.2.4988404/bin/cmake -H/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib -B/Users/luohaiming/Documents/AndroidProjects/MyAppDemo/nativelib/.cxx/cmake/debug/arm64-v8a
+  command = /Users/luohaiming/Library/Android/sdk/cmake/3.10.2.4988404/bin/cmake -H/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib -B/Users/PokeStudio/AndroidProjects/MikelProjectDemo-github/nativelib/.cxx/cmake/debug/arm64-v8a
   description = Re-running CMake...
   generator = 1
 

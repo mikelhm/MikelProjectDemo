@@ -1,7 +1,17 @@
-package com.mikel.projectdemo.media.video;
+package com.mikel.projectdemo.uiframework;
+
 import android.content.Context;
 import android.net.Uri;
+import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.danikula.videocache.HttpProxyCacheServer;
 import com.google.android.exoplayer2.DefaultLoadControl;
@@ -17,43 +27,45 @@ import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
 import com.google.android.exoplayer2.ui.AspectRatioFrameLayout;
+import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
+import com.mikel.baselib.utils.AppUtil;
+import com.mikel.projectdemo.R;
+import com.mikel.projectdemo.media.video.VideoFileNameGenerator;
+import com.mikel.projectdemo.media.video.VideoPlayManager;
+import com.mikel.projectdemo.media.video.VideoPlayTask;
+import com.mikel.projectdemo.media.video.VideoViewPagerAdapter;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
-public class VideoPlayManager {
-    private volatile static VideoPlayManager mInstance = null;
+public class VideoTestFragment extends Fragment {
+    public static VideoTestFragment build() {
+        return new VideoTestFragment();
+    }
+
     private Context mContext;
     private SimpleExoPlayer mSimpleExoPlayer;
     private VideoPlayTask mCurVideoPlayTask;
-    /**
-     * 双重检测
-     * @return
-     */
-    public static VideoPlayManager getInstance(Context context) {
-        if (mInstance == null) {
-            synchronized (VideoPlayManager.class) {
-                if(mInstance == null) {
-                    mInstance = new VideoPlayManager(context);
-                }
-            }
-        }
-        return mInstance;
+
+    @Override
+    public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable @org.jetbrains.annotations.Nullable ViewGroup container, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+        mContext = getActivity();
+        View rootView = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_video_item, null, true);
+        initUI(rootView);
+        return rootView;
     }
 
-    public VideoPlayManager(Context context) {
-        this.mContext = context;
+    private void initUI(View rootView) {
+        SimpleExoPlayerView simpleExoPlayerView = rootView.findViewById(R.id.video_view);
+        mCurVideoPlayTask = new VideoPlayTask(simpleExoPlayerView, "\"https://vfx.mtime.cn/Video/2019/01/15/mp4/190115161611510728_480.mp4");
     }
 
-    /**
-     * 开始播放
-     */
     public void startPlay() {
         stopPlay();
         if(mCurVideoPlayTask == null) {
@@ -116,11 +128,11 @@ public class VideoPlayManager {
 
     public void pausePlay() {
         if(mSimpleExoPlayer != null) {
-           mSimpleExoPlayer.setPlayWhenReady(false);
+            mSimpleExoPlayer.setPlayWhenReady(false);
         }
     }
 
-    /********************************************* VideoCache start ***************************************/
+
     private HttpProxyCacheServer mHttpProxyCacheServer;
     public HttpProxyCacheServer getProxy() {
         if(mHttpProxyCacheServer == null) {
@@ -138,25 +150,23 @@ public class VideoPlayManager {
                 .cacheDirectory(new File(mContext.getFilesDir() + "/videoCache/"))
                 .build();
     }
-    /********************************************* VideoCache end ***************************************/
-    public VideoPlayTask getCurVideoPlayTask() {
-        return mCurVideoPlayTask;
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        stopPlay();
     }
 
-    public void setCurVideoPlayTask(VideoPlayTask mCurVideoPlayTask) {
-        this.mCurVideoPlayTask = mCurVideoPlayTask;
+    @Override
+    public void onResume() {
+        super.onResume();
+        resumePlay();
     }
 
-    /**
-     * 构建测试数据
-     * @return
-     */
-    public static List<String> buildTestVideoUrls() {
-        List<String> urls = new ArrayList<>();
-        urls.add("https://vfx.mtime.cn/Video/2019/01/15/mp4/190115161611510728_480.mp4");
-        urls.add("http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4");
-        urls.add("http://gslb.miaopai.com/stream/oxX3t3Vm5XPHKUeTS-zbXA__.mp4");
-        urls.add("http://vjs.zencdn.net/v/oceans.mp4 ");
-        return urls;
+    @Override
+    public void onStop() {
+        super.onStop();
+        pausePlay();
     }
 }

@@ -67,7 +67,7 @@ dependencies {
     api 'androidx.recyclerview:recyclerview:1.2.0'
 
     //exoplayer
-    api 'com.google.android.exoplayer:exoplayer:2.11.3'
+    api 'com.google.android.exoplayer:exoplayer:2.11.8'
     //video cache
     api 'com.danikula:videocache:2.7.1'
     //glide

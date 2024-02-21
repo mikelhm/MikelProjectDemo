@@ -52,6 +52,15 @@
             android:layout_margin="10dp">
 
         </Button>
+
+        <Button
+            android:id="@+id/exo_entry_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="exo 测试入口"
+            android:layout_margin="10dp">
+
+        </Button>
     </LinearLayout>
 
 </FrameLayout>

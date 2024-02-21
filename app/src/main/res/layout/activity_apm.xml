@@ -77,11 +77,47 @@
     </Button>
 
     <Button
-        android:id="@+id/btn_anr_test"
+        android:id="@+id/btn_evil_touch_event"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="模拟ANR">
+        android:text="模拟Touch Event 卡顿">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btn_evil_idle_handler"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="模拟Idle Handler 卡顿">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btn_anr_test_click"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="模拟ANR-事件点击">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btn_anr_test_br"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="模拟ANR-广播超时">
+
+    </Button>
+
+    <Button
+        android:id="@+id/btn_anr_test_service"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="模拟ANR-启动服务超时">
 
     </Button>
 

@@ -35,9 +35,12 @@ public class MatrixManager {
         //Trace plugin
         TraceConfig traceConfig = new TraceConfig.Builder()
                 .dynamicConfig(matrixDynamicConfig)
-                .enableFPS(fpsEnable)//帧率
-                .enableEvilMethodTrace(traceEnable)//慢方法
-                .enableAnrTrace(traceEnable)//anr
+                .enableFPS(true)//帧率
+                .enableEvilMethodTrace(true)//慢方法
+                .enableAnrTrace(true)//anr
+                .enableSignalAnrTrace(true)//signal quit 信号监听 ANR
+                .enableIdleHandlerTrace(true)//idle handler 卡顿
+                .enableTouchEventTrace(true)
                 .enableStartup(traceEnable)//启动速度
                 .splashActivities(splashActivity)//首页
                 //debug模式
