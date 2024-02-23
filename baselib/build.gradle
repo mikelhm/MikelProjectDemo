@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
     buildToolsVersion "30.0.3"
 
     defaultConfig {
@@ -67,7 +67,7 @@ dependencies {
     api 'androidx.recyclerview:recyclerview:1.2.0'
 
     //exoplayer
-    api 'com.google.android.exoplayer:exoplayer:2.11.8'
+    api 'com.google.android.exoplayer:exoplayer:2.19.1'
     //video cache
     api 'com.danikula:videocache:2.7.1'
     //glide

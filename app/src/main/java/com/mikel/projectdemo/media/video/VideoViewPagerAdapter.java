@@ -5,7 +5,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
+
+import com.google.android.exoplayer2.ui.PlayerView;
 import com.mikel.projectdemo.R;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,12 +56,12 @@ public class VideoViewPagerAdapter extends RecyclerView.Adapter<VideoViewPagerAd
     }
 
     public class VideoViewHolder extends RecyclerView.ViewHolder {
-        public SimpleExoPlayerView mVideoView;
+        public PlayerView mVideoView;
         public String videoUrl;
 
         VideoViewHolder(View itemView) {
             super(itemView);
-            mVideoView = itemView.findViewById(R.id.video_view);
+            mVideoView = itemView.findViewById(R.id.player_view);
         }
     }
 

@@ -1,21 +1,22 @@
 package com.mikel.projectdemo.media.video;
 
-import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
+
+import com.google.android.exoplayer2.ui.PlayerView;
 
 public class VideoPlayTask {
-    private SimpleExoPlayerView mSimpleExoPlayerView;
+    private PlayerView mSimpleExoPlayerView;
     private String mVideoUrl;
 
-    public VideoPlayTask(SimpleExoPlayerView simpleExoPlayerView, String uri) {
+    public VideoPlayTask(PlayerView simpleExoPlayerView, String uri) {
         this.mSimpleExoPlayerView = simpleExoPlayerView;
         this.mVideoUrl = uri;
     }
 
-    public SimpleExoPlayerView getSimpleExoPlayerView() {
+    public PlayerView getSimpleExoPlayerView() {
         return mSimpleExoPlayerView;
     }
 
-    public void setSimpleExoPlayerView(SimpleExoPlayerView mSimpleExoPlayerView) {
+    public void setSimpleExoPlayerView(PlayerView mSimpleExoPlayerView) {
         this.mSimpleExoPlayerView = mSimpleExoPlayerView;
     }
 
