@@ -22,34 +22,42 @@
 
         </service>
         <!--activity-->
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".jetpack.view.ui.Paging2MainActivity">
+        <activity android:name=".jetpack.view.ui.Paging2MainActivity"
+            android:exported="false">
         </activity>
-        <activity android:name=".jetpack.view.ui.Paging3MainActivity">
+        <activity android:name=".jetpack.view.ui.Paging3MainActivity"
+            android:exported="false">
         </activity>
-        <activity android:name=".jetpack.view.ui.PoetryDetailActivity">
+        <activity android:name=".jetpack.view.ui.PoetryDetailActivity"
+            android:exported="false">
         </activity>
 
-        <activity android:name=".apm.ApmTestActivity">
+        <activity android:name=".apm.ApmTestActivity"
+            android:exported="false">
 
         </activity>
 
-        <activity android:name=".apm.ApmTouchEventTestActivity">
+        <activity android:name=".apm.ApmTouchEventTestActivity"
+            android:exported="false">
 
         </activity>
 
         <activity android:name=".web.WebViewTestActivity"
-                  android:process=":web">
+                  android:process=":web"
+            android:exported="false">
 
         </activity>
 
-        <activity android:name=".video.VideoTestActivity">
+        <activity android:name=".video.VideoTestActivity"
+            android:exported="false">
 
         </activity>
     </application>

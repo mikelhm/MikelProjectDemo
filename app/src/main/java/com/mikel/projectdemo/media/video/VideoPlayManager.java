@@ -3,24 +3,29 @@ import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 
+import androidx.media3.common.MediaItem;
+import androidx.media3.exoplayer.ExoPlayer;
+import androidx.media3.exoplayer.SimpleExoPlayer;
+import androidx.media3.ui.AspectRatioFrameLayout;
+
 import com.danikula.videocache.HttpProxyCacheServer;
-import com.google.android.exoplayer2.DefaultLoadControl;
-import com.google.android.exoplayer2.LoadControl;
-import com.google.android.exoplayer2.MediaItem;
-import com.google.android.exoplayer2.Player;
-import com.google.android.exoplayer2.SimpleExoPlayer;
-import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
-import com.google.android.exoplayer2.source.MediaSource;
-import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
-import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
-import com.google.android.exoplayer2.trackselection.TrackSelection;
-import com.google.android.exoplayer2.trackselection.TrackSelector;
-import com.google.android.exoplayer2.ui.AspectRatioFrameLayout;
-import com.google.android.exoplayer2.upstream.BandwidthMeter;
-import com.google.android.exoplayer2.upstream.DataSource;
-import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
-import com.google.android.exoplayer2.util.Util;
+//import com.google.android.exoplayer2.DefaultLoadControl;
+//import com.google.android.exoplayer2.LoadControl;
+//import com.google.android.exoplayer2.MediaItem;
+//import com.google.android.exoplayer2.Player;
+//import com.google.android.exoplayer2.SimpleExoPlayer;
+//import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
+//import com.google.android.exoplayer2.source.MediaSource;
+//import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
+//import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
+//import com.google.android.exoplayer2.trackselection.TrackSelection;
+//import com.google.android.exoplayer2.trackselection.TrackSelector;
+//import com.google.android.exoplayer2.ui.AspectRatioFrameLayout;
+//import com.google.android.exoplayer2.upstream.BandwidthMeter;
+//import com.google.android.exoplayer2.upstream.DataSource;
+//import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
+//import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
+//import com.google.android.exoplayer2.util.Util;
 import com.mikel.projectdemo.R;
 
 import java.io.File;
@@ -30,7 +35,7 @@ import java.util.List;
 public class VideoPlayManager {
     private volatile static VideoPlayManager mInstance = null;
     private Context mContext;
-    private SimpleExoPlayer mSimpleExoPlayer;
+    private ExoPlayer mSimpleExoPlayer;
     private VideoPlayTask mCurVideoPlayTask;
     /**
      * 双重检测
@@ -61,7 +66,7 @@ public class VideoPlayManager {
             return;
         }
 
-        mSimpleExoPlayer = new SimpleExoPlayer.Builder(mContext).build();
+        mSimpleExoPlayer = new ExoPlayer.Builder(mContext).build();
         // 准备要播放的媒体资源
         MediaItem mediaItem = MediaItem.fromUri(mCurVideoPlayTask.getVideoUrl());
         mSimpleExoPlayer.setMediaItem(mediaItem);

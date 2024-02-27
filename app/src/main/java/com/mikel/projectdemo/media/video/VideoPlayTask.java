@@ -1,7 +1,9 @@
 package com.mikel.projectdemo.media.video;
 
 
-import com.google.android.exoplayer2.ui.PlayerView;
+//import com.google.android.exoplayer2.ui.PlayerView;
+
+import androidx.media3.ui.PlayerView;
 
 public class VideoPlayTask {
     private PlayerView mSimpleExoPlayerView;

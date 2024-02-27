@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace 'com.mikel.mmkv'
-    compileSdkVersion 33
+    compileSdkVersion 34
 
     defaultConfig {
         minSdkVersion 24

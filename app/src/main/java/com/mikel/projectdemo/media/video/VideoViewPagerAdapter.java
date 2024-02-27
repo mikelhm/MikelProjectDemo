@@ -1,4 +1,5 @@
 package com.mikel.projectdemo.media.video;
+import androidx.media3.ui.PlayerView;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.util.Log;
@@ -6,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.exoplayer2.ui.PlayerView;
+//import com.google.android.exoplayer2.ui.PlayerView;
 import com.mikel.projectdemo.R;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +62,7 @@ public class VideoViewPagerAdapter extends RecyclerView.Adapter<VideoViewPagerAd
 
         VideoViewHolder(View itemView) {
             super(itemView);
-            mVideoView = itemView.findViewById(R.id.player_view);
+            mVideoView = itemView.findViewById(R.id.play_view);
         }
     }
 

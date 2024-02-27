@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.exoplayer2.ui.PlayerView;
+//import com.google.android.exoplayer2.ui.PlayerView;
 import com.mikel.baselib.utils.AppUtil;
 import com.mikel.projectdemo.R;
 import com.mikel.projectdemo.media.video.VideoPlayManager;
@@ -18,6 +18,7 @@ import org.jetbrains.annotations.NotNull;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.media3.ui.PlayerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 public class MediaFragment extends Fragment {
@@ -52,7 +53,7 @@ public class MediaFragment extends Fragment {
                 super.onPageSelected(position);
                 Log.d("Video_Play_TAG", " on page selected = " + position);
                 View itemView = mViewPager2.findViewWithTag(position);
-                PlayerView simpleExoPlayerView = itemView.findViewById(R.id.player_view);
+                PlayerView simpleExoPlayerView = itemView.findViewById(R.id.play_view);
                 VideoPlayManager.getInstance(AppUtil.getApplicationContext()).setCurVideoPlayTask(new VideoPlayTask(simpleExoPlayerView,
                         mVideoViewPagerAdapter.getUrlByPos(position)));
                 if(onFragmentResume && onFragmentVisible) {
