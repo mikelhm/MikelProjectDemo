@@ -30,6 +30,7 @@
         </service>
         <!--activity-->
         <activity android:name=".MainActivity"
+            android:theme="@style/Theme.Material3.Light"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

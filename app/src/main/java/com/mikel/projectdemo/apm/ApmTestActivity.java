@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Debug;
 import android.os.Handler;
@@ -95,7 +96,11 @@ public class ApmTestActivity extends Activity {
         super.onResume();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("ANR_TEST_BR");
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        registerReceiver(anrTestReceiver, intentFilter, RECEIVER_EXPORTED);
+      } else {
         registerReceiver(anrTestReceiver, intentFilter);
+      }
     }
 
     @Override

@@ -3,11 +3,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 34
+    namespace 'com.mikel.apmlib'
+    compileSdkVersion 35
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 34
+        minSdkVersion 23
+        targetSdkVersion 35
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"

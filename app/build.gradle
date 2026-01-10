@@ -1,24 +1,25 @@
 plugins {
     id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 //todo matrix
-apply plugin: 'com.tencent.matrix-plugin'
-matrix {
-    trace {
-        enable = true	//if you don't want to use trace canary, set false
-        baseMethodMapFile = "${project.buildDir}/matrix_output/Debug.methodmap"
-        blackListFile = "${project.projectDir}/matrixTrace/blackMethodList.txt"
-    }
-}
+//apply plugin: 'com.tencent.matrix-plugin'
+//matrix {
+//    trace {
+//        enable = true	//if you don't want to use trace canary, set false
+//        baseMethodMapFile = "${project.buildDir}/matrix_output/Debug.methodmap"
+//        blackListFile = "${project.projectDir}/matrixTrace/blackMethodList.txt"
+//    }
+//}
 
 android {
-    compileSdkVersion 34
-
+    namespace "com.mikel.projectdemo"
+    compileSdkVersion 35
     defaultConfig {
-        applicationId "com.mikel.projectdemo"
-        minSdkVersion 21
-        targetSdkVersion 34
+        minSdkVersion 23
+        targetSdkVersion 35
         versionCode 1
         versionName "1.0"
 
@@ -36,8 +37,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     /**

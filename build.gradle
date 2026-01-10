@@ -1,5 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+    ext.kotlin_version = '1.9.25'  // 或者使用最新版本
     repositories {
         google()
         maven { url 'https://maven.aliyun.com/repository/public' }
@@ -8,11 +9,10 @@ buildscript {
         maven { url 'https://jitpack.io' }
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:7.1.2"
+        classpath "com.android.tools.build:gradle:8.5.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         //todo matrix
-        classpath ("com.tencent.matrix:matrix-gradle-plugin:${lib_thirds_matrix_version}") { changing = true }
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        //classpath ("com.tencent.matrix:matrix-gradle-plugin:${lib_thirds_matrix_version}") { changing = true }
     }
 }
 

@@ -6,8 +6,13 @@ import android.util.Log;
 import androidx.media3.common.MediaItem;
 import androidx.media3.common.PlaybackException;
 import androidx.media3.common.Player;
+import androidx.media3.datasource.DataSource;
+import androidx.media3.datasource.DefaultDataSource;
+import androidx.media3.datasource.cache.CacheDataSource;
+import androidx.media3.datasource.cache.SimpleCache;
 import androidx.media3.exoplayer.ExoPlayer;
 import androidx.media3.exoplayer.SimpleExoPlayer;
+import androidx.media3.exoplayer.source.DefaultMediaSourceFactory;
 import androidx.media3.ui.AspectRatioFrameLayout;
 
 import com.danikula.videocache.HttpProxyCacheServer;
@@ -68,7 +73,25 @@ public class VideoPlayManager {
             return;
         }
 
-        mSimpleExoPlayer = new ExoPlayer.Builder(mContext).build();
+        // 1. 获取全局缓存实例
+        SimpleCache cache = VideoCacheManager.INSTANCE.getCache(mContext);
+
+        // 2. 创建缓存数据源工厂
+        DataSource.Factory upstreamFactory = new DefaultDataSource.Factory(mContext);
+        CacheDataSource.Factory cacheDataSourceFactory = new CacheDataSource.Factory()
+                                                           .setCache(cache)
+                                                           .setUpstreamDataSourceFactory(upstreamFactory)
+                                                           .setFlags(CacheDataSource.FLAG_IGNORE_CACHE_ON_ERROR);
+
+        // 3. 创建媒体源工厂并使用缓存数据源
+        DefaultMediaSourceFactory mediaSourceFactory = new DefaultMediaSourceFactory(mContext)
+                                                         .setDataSourceFactory(cacheDataSourceFactory);
+
+
+        mSimpleExoPlayer = new ExoPlayer.Builder(mContext)
+                             .setMediaSourceFactory(mediaSourceFactory)
+                             .build();
+
         mSimpleExoPlayer.addListener(new Player.Listener() {
             @Override
             public void onPlayerError(PlaybackException error) {
@@ -98,10 +121,13 @@ public class VideoPlayManager {
             }
         });
         // 准备要播放的媒体资源
-        String uri = getProxy().getProxyUrl(mCurVideoPlayTask.getVideoUrl());
-        Log.d("Video_Play_TAG", "start play video url =" + mCurVideoPlayTask.getVideoUrl()
-         + ", proxy uri = " + uri);
-        MediaItem mediaItem = MediaItem.fromUri(uri);
+        //todo 使用三方库VideoCache
+//        String uri = getProxy().getProxyUrl(mCurVideoPlayTask.getVideoUrl());
+//        Log.d("Video_Play_TAG", "start play video url =" + mCurVideoPlayTask.getVideoUrl()
+//         + ", proxy uri = " + uri);
+//        MediaItem mediaItem = MediaItem.fromUri(uri);
+
+        MediaItem mediaItem = MediaItem.fromUri(mCurVideoPlayTask.getVideoUrl());
         mSimpleExoPlayer.setMediaItem(mediaItem);
 
         //隐藏播放工具
@@ -162,6 +188,35 @@ public class VideoPlayManager {
                 .fileNameGenerator(new VideoFileNameGenerator())
                 .cacheDirectory(cacheFile)
                 .build();
+    }
+
+    /**
+     * 清空所有缓存
+     */
+    public void clearCache() {
+        VideoCacheManager.INSTANCE.clearCache();
+        Log.d("Video_Play_TAG", "已清空所有缓存");
+    }
+
+    /**
+     * 获取当前缓存大小（MB）
+     */
+    public double getCacheSizeMB() {
+        long bytes = VideoCacheManager.INSTANCE.getCacheSize();
+        return bytes / 1024.0 / 1024.0;
+    }
+
+    /**
+     * 预加载视频（可选功能）
+     */
+    public void preloadVideo(String videoUrl) {
+        try {
+            SimpleCache cache = VideoCacheManager.INSTANCE.getCache(mContext);
+            Log.d("Video_Play_TAG", "开始预加载: " + videoUrl);
+
+        } catch (Exception e) {
+            Log.e("Video_Play_TAG", "预加载失败: " + e.getMessage());
+        }
     }
     /********************************************* VideoCache end ***************************************/
     public VideoPlayTask getCurVideoPlayTask() {

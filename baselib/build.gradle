@@ -3,12 +3,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion 34
-    buildToolsVersion "30.0.3"
+    namespace 'com.mikel.baselib'
+    compileSdkVersion 35
+    buildToolsVersion "35.0.1"
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 34
+        minSdkVersion 23
+        targetSdkVersion 35
         versionCode 1
         versionName "1.0"
 
@@ -68,9 +69,9 @@ dependencies {
 
     //exoplayer
 //    api 'com.google.android.exoplayer:exoplayer:2.19.1'
-    api("androidx.media3:media3-exoplayer:1.2.0")
-    api("androidx.media3:media3-session:1.2.0")
-    api("androidx.media3:media3-ui:1.2.0")
+    api("androidx.media3:media3-exoplayer:1.9.0")
+    api("androidx.media3:media3-session:1.9.0")
+    api("androidx.media3:media3-ui:1.9.0")
 
     //video cache
     api 'com.danikula:videocache:2.7.1'
