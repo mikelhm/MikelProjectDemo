@@ -78,4 +78,9 @@ dependencies {
     api 'com.github.bumptech.glide:glide:4.11.0'
 
     api project((':nativelib'))
+
+    // 设备兼容框架：https://github.com/getActivity/DeviceCompat
+    api 'com.github.getActivity:DeviceCompat:2.3'
+    // 权限请求框架：https://github.com/getActivity/XXPermissions
+    api 'com.github.getActivity:XXPermissions:28.0'
 }

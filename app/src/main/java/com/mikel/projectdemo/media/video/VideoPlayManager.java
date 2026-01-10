@@ -4,6 +4,8 @@ import android.net.Uri;
 import android.util.Log;
 
 import androidx.media3.common.MediaItem;
+import androidx.media3.common.PlaybackException;
+import androidx.media3.common.Player;
 import androidx.media3.exoplayer.ExoPlayer;
 import androidx.media3.exoplayer.SimpleExoPlayer;
 import androidx.media3.ui.AspectRatioFrameLayout;
@@ -67,8 +69,39 @@ public class VideoPlayManager {
         }
 
         mSimpleExoPlayer = new ExoPlayer.Builder(mContext).build();
+        mSimpleExoPlayer.addListener(new Player.Listener() {
+            @Override
+            public void onPlayerError(PlaybackException error) {
+                Log.e("Video_Play_TAG", "播放错误: " + error.getMessage());
+            }
+
+            @Override
+            public void onPlaybackStateChanged(int playbackState) {
+                String stateString;
+                switch (playbackState) {
+                    case Player.STATE_IDLE:
+                        stateString = "IDLE";
+                        break;
+                    case Player.STATE_BUFFERING:
+                        stateString = "BUFFERING";
+                        break;
+                    case Player.STATE_READY:
+                        stateString = "READY";
+                        break;
+                    case Player.STATE_ENDED:
+                        stateString = "ENDED";
+                        break;
+                    default:
+                        stateString = "UNKNOWN";
+                }
+                Log.d("Video_Play_TAG", "播放状态: " + stateString);
+            }
+        });
         // 准备要播放的媒体资源
-        MediaItem mediaItem = MediaItem.fromUri(mCurVideoPlayTask.getVideoUrl());
+        String uri = getProxy().getProxyUrl(mCurVideoPlayTask.getVideoUrl());
+        Log.d("Video_Play_TAG", "start play video url =" + mCurVideoPlayTask.getVideoUrl()
+         + ", proxy uri = " + uri);
+        MediaItem mediaItem = MediaItem.fromUri(uri);
         mSimpleExoPlayer.setMediaItem(mediaItem);
 
         //隐藏播放工具
@@ -118,12 +151,16 @@ public class VideoPlayManager {
     }
 
     private HttpProxyCacheServer newProxy() {
+        File cacheFile = new File(mContext.getExternalCacheDir() + File.separator + "videoCache");
+        if(!cacheFile.exists()) {
+            cacheFile.mkdirs();
+        }
         //缓存大小512M,缓存文件20
         return new HttpProxyCacheServer.Builder(mContext.getApplicationContext())
                 .maxCacheSize(512 * 1024 * 1024)
                 .maxCacheFilesCount(20)
                 .fileNameGenerator(new VideoFileNameGenerator())
-                .cacheDirectory(new File(mContext.getFilesDir() + "/videoCache/"))
+                .cacheDirectory(cacheFile)
                 .build();
     }
     /********************************************* VideoCache end ***************************************/
@@ -142,11 +179,7 @@ public class VideoPlayManager {
     public static List<String> buildTestVideoUrls() {
         List<String> urls = new ArrayList<>();
         urls.add("https://vfx.mtime.cn/Video/2019/01/15/mp4/190115161611510728_480.mp4");
-        urls.add("https://v-cdn.zjol.com.cn/276984.mp4");
-        urls.add("https://v-cdn.zjol.com.cn/276985.mp4");
-        urls.add("https://v-cdn.zjol.com.cn/276986.mp4");
-        urls.add("https://v-cdn.zjol.com.cn/276987.mp4");
-        urls.add("https://v-cdn.zjol.com.cn/276988.mp4");
+        urls.add("https://media.w3.org/2010/05/sintel/trailer.mp4");
         return urls;
     }
 }

@@ -4,6 +4,8 @@ buildscript {
         google()
         maven { url 'https://maven.aliyun.com/repository/public' }
         mavenCentral()
+        // JitPack 远程仓库：https://jitpack.io
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:7.1.2"
@@ -20,6 +22,8 @@ allprojects {
         maven { url 'https://maven.aliyun.com/repository/public' }
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
+        // JitPack 远程仓库：https://jitpack.io
+        maven { url 'https://jitpack.io' }
     }
 }
 

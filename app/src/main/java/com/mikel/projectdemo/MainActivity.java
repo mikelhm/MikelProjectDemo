@@ -6,7 +6,8 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
 import android.widget.LinearLayout;
-
+import com.hjq.permissions.XXPermissions;
+import com.hjq.permissions.permission.PermissionLists;
 import com.mikel.projectdemo.uiframework.JetPackFragment;
 import com.mikel.projectdemo.uiframework.MainFragment;
 import com.mikel.projectdemo.uiframework.MainViewPagerAdapter;
@@ -28,6 +29,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initUI();
+        XXPermissions.with(this)
+          .permission(PermissionLists.getManageExternalStoragePermission())
+          .request((grantedList, deniedList) -> {
+              boolean allGranted = deniedList.isEmpty();
+              if (!allGranted) {
+                  boolean doNotAskAgain = XXPermissions.isDoNotAskAgainPermissions(MainActivity.this, deniedList);
+              }
+          });
     }
 
     private void initUI() {

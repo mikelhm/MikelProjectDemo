@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".application.BaseApplication"
@@ -16,7 +17,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MikelProjectDemo">
+        android:theme="@style/Theme.MikelProjectDemo"
+        android:requestLegacyExternalStorage="true">
+
+        <meta-data
+            android:name="ScopedStorage"
+            android:value="true" />
+
 
         <service android:name=".apm.ApmAnrTestService">
 
