@@ -12,6 +12,7 @@ import android.view.WindowInsetsController;
 import android.widget.LinearLayout;
 import com.hjq.permissions.XXPermissions;
 import com.hjq.permissions.permission.PermissionLists;
+import com.mikel.projectdemo.audio.PlayerUtil;
 import com.mikel.projectdemo.uiframework.JetPackFragment;
 import com.mikel.projectdemo.uiframework.MainFragment;
 import com.mikel.projectdemo.uiframework.MainViewPagerAdapter;
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                   boolean doNotAskAgain = XXPermissions.isDoNotAskAgainPermissions(MainActivity.this, deniedList);
               }
           });
+        PlayerUtil.INSTANCE.createNotificationChannel(this.getApplicationContext());
     }
 
     private void initUI() {

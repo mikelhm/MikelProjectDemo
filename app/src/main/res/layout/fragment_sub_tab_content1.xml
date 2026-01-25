@@ -61,6 +61,33 @@
             android:layout_margin="10dp">
 
         </Button>
+
+        <Button
+            android:id="@+id/play_audio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="播放音频"
+            android:layout_margin="10dp">
+
+        </Button>
+
+        <Button
+            android:id="@+id/pause_audio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="暂停音频"
+            android:layout_margin="10dp">
+
+        </Button>
+
+        <Button
+            android:id="@+id/stop_audio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="停止音频"
+            android:layout_margin="10dp">
+
+        </Button>
     </LinearLayout>
 
 </FrameLayout>

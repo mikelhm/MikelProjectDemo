@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">MikelProjectDemo</string>
+
+    <string name="notification_channel_name">音频播放</string>
+    <string name="notification_channel_desc">音频播放通知</string>
 </resources>

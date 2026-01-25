@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import com.mikel.projectdemo.R;
 import com.mikel.projectdemo.apm.ApmTestActivity;
+import com.mikel.projectdemo.audio.PlayerUtil;
 import com.mikel.projectdemo.presenter.FileHandlePresenter;
 import com.mikel.projectdemo.video.VideoTestActivity;
 
@@ -112,6 +113,30 @@ public class SubTabFragment1 extends Fragment {
             @Override
             public void onClick(View v) {
                 VideoTestActivity.startActivity(getActivity());
+            }
+        });
+
+        Button playAudio = rootView.findViewById(R.id.play_audio);
+        playAudio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PlayerUtil.INSTANCE.playAssetAudio(getActivity(), "audio.mp3", "test");
+            }
+        });
+
+        Button pauseAudio = rootView.findViewById(R.id.pause_audio);
+        pauseAudio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PlayerUtil.INSTANCE.pauseAudio(getActivity());
+            }
+        });
+
+        Button stopAudio = rootView.findViewById(R.id.stop_audio);
+        stopAudio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PlayerUtil.INSTANCE.stopAudio(getActivity());
             }
         });
     }
